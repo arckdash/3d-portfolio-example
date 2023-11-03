@@ -2,17 +2,17 @@ import { FC } from 'react';
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
-import { styles } from '../styles';
-import { services } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
+import { styles } from '../../styles';
+import { services } from '../../constants'
+import { fadeIn, textVariant } from "../../utils/motion";
 
-import { SectionWrapper } from '../hoc';
+import { SectionWrapper } from '../../hoc';
 import ServiceCard from './components/ServiceCard';
 
 type TServiceCard = {
-    index: number;
-    title: string;
-    icon?: string;
+  index: number;
+  title: string;
+  icon?: string;
 };
 
 // const ServiceCard: FC<TServiceCard> = ({ index, title, icon }) => {
@@ -39,32 +39,32 @@ type TServiceCard = {
 // }
 
 const About = () => {
-    return (
-        <>
-            <motion.div variants={textVariant(0.5)}>
-                <p className={styles.sectionSubText}>Introduction</p>
-                <h2 className={styles.sectionHeadText}>Overview.</h2>
+  return (
+    <>
+      <motion.div variants={textVariant(0.5)}>
+        <p className={styles.sectionSubText}>Introduction</p>
+        <h2 className={styles.sectionHeadText}>Overview.</h2>
 
-                <motion.p
-                    variants={fadeIn('up', '', 0.1, 1)}
-                    className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
-                >
-                    I'm a skilled Software Engineer with experience in Typescript and Javascript, and expertise
-                    in libraries and frameworks like React, Node.js, and Three.js. I'm a quick learner and collaborate closely
-                    with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems.
-                    Let's work together to bring your ideas to life!
-                </motion.p>
-            </motion.div>
+        <motion.p
+          variants={fadeIn('up', '', 0.1, 1)}
+          className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+        >
+          I'm a skilled Software Engineer with experience in Typescript and Javascript, and expertise
+          in libraries and frameworks like React, Node.js, and Three.js. I'm a quick learner and collaborate closely
+          with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems.
+          Let's work together to bring your ideas to life!
+        </motion.p>
+      </motion.div>
 
-            <div className="mt-20 flex flex-wrap gap-10">
-                {services.map((s, index) => <ServiceCard key={s.title} index={index} {...s} />)}
-            </div>
-        </>
-    )
+      <div className="mt-20 flex flex-wrap gap-10">
+        {services.map((s, index) => <ServiceCard key={s.title} index={index} {...s} />)}
+      </div>
+    </>
+  )
 }
 
 const MyComp = () => {
-    return <SectionWrapper Component={About} idName='about' />;
+  return <SectionWrapper Component={About} idName='about' />;
 };
 
 export default MyComp;
